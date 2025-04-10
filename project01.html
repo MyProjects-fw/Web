@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 01 – Blinking an LED</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Project 01 – Blinking an LED</h1>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </header>
+  <main>
+    <section>
+      <h2>Components Used</h2>
+      <ul>
+        <li>Microcontroller board (e.g., STM32 or Arduino)</li>
+        <li>5mm Red LED</li>
+        <li>220-ohm resistor</li>
+        <li>Breadboard and jumper wires</li>
+        <li>USB cable for programming and power</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Circuit Description</h2>
+      <p>The LED was connected in series with a resistor between a GPIO pin and ground. The resistor prevents too much current from flowing through the LED.</p>
+    </section>
+
+    <section>
+      <h2>Code Overview</h2>
+      <pre><code>#define LED_PIN 13
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(500);
+  digitalWrite(LED_PIN, LOW);
+  delay(500);
+}
+</code></pre>
+    </section>
+
+    <section>
+      <h2>What I Learned</h2>
+      <ul>
+        <li>How to configure GPIO pins as outputs</li>
+        <li>The role of resistors in limiting current</li>
+        <li>Using simple timing functions like <code>delay()</code></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
