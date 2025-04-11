@@ -3,100 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Blog</title>
+    <title>Your Blog Title</title>
     <style>
         body {
             font-family: sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            line-height: 1.6;
         }
 
-        .header {
-            background-color: #333;
-            color: #fff;
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
             text-align: center;
-            padding: 20px 0;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
         }
 
         .container {
-            width: 80%;
-            max-width: 800px;
-            margin: 0 auto 20px auto; /* adjusted margin*/
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .category-section {
+            width: 100%; /* Full width on smaller screens */
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .category-section {
+                width: 48%; /* Adjust as needed for two columns */
+                margin-right: 2%; /* Add spacing between columns */
+            }
+            .category-section:nth-child(even) {
+                margin-right: 0; /* Remove right margin from the second column */
+            }
         }
 
         .post {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
         }
 
         .post h2 {
-            margin-bottom: 10px;
+            margin-top: 0;
         }
 
-        .post img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .post p {
-            margin-bottom: 15px;
-        }
-
-        .post .meta {
-            font-size: 0.9em;
-            color: #888;
-        }
-
-        .footer {
+        footer {
+            background-color: #f0f0f0;
+            padding: 10px;
             text-align: center;
-            padding: 20px 0;
-            background-color: #eee;
+            margin-top: 20px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .container {
-                width: 95%;
-            }
-        }
+        /* Add more styles as needed */
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>My Awesome Blog</h1>
+
+    <header>
+        <h1>Your Blog Name</h1>
+        <p>A place for your thoughts.</p>
     </header>
 
     <div class="container">
-        <div class="post">
-            <h2>My First Blog Post</h2>
-            <div class="meta">Posted on January 1, 2024 by John Doe</div>
-            <img src="placeholder-image.jpg" alt="Placeholder Image">
-            <p>This is my first blog post. I'm excited to share my thoughts and ideas with the world. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Another paragraph here. More information. </p>
-        </div>
 
-        <div class="post">
-            <h2>Another Interesting Post</h2>
-            <div class="meta">Posted on January 15, 2024 by Jane Smith</div>
-            <img src="placeholder-image2.jpg" alt="Another Placeholder Image">
-            <p>This is another interesting post. We're discussing topics that are relevant to this blogs focus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <section class="category-section">
+            <h2>Category 1: Travel Adventures</h2>
+            <div class="post">
+                <h2>Post Title 1.1</h2>
+                <p>Post excerpt or first few lines...</p>
+                <a href="post1.html">Read more</a>
+            </div>
+            <div class="post">
+                <h2>Post Title 1.2</h2>
+                <p>Post excerpt or first few lines...</p>
+                <a href="post2.html">Read more</a>
+            </div>
+            </section>
+
+        <section class="category-section">
+            <h2>Category 2: Creative Writing</h2>
+            <div class="post">
+                <h2>Post Title 2.1</h2>
+                <p>Post excerpt or first few lines...</p>
+                <a href="post3.html">Read more</a>
+            </div>
+             <div class="post">
+                <h2>Post Title 2.2</h2>
+                <p>Post excerpt or first few lines...</p>
+                <a href="post4.html">Read more</a>
+            </div>
+            </section>
+
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2024 My Blog</p>
+    <footer>
+        <p>&copy; 2024 Your Name</p>
     </footer>
+
 </body>
 </html>
