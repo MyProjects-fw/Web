@@ -19,26 +19,17 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
         }
 
         .category-section {
-            width: 100%; /* Full width on smaller screens */
-            margin-bottom: 20px;
+            display: none; /* Initially hide all categories */
         }
 
-        @media (min-width: 600px) {
-            .category-section {
-                width: 48%; /* Adjust as needed for two columns */
-                margin-right: 2%; /* Add spacing between columns */
-            }
-            .category-section:nth-child(even) {
-                margin-right: 0; /* Remove right margin from the second column */
-            }
+        .category-section.active {
+            display: block; /* Show the active category */
         }
 
         .post {
@@ -58,7 +49,17 @@
             margin-top: 20px;
         }
 
-        /* Add more styles as needed */
+        #category-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #category-buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -68,10 +69,15 @@
         <p>A place for your thoughts.</p>
     </header>
 
+    <div id="category-buttons">
+        <button onclick="showCategory('travel')">Travel Adventures</button>
+        <button onclick="showCategory('writing')">Creative Writing</button>
+    </div>
+
     <div class="container">
 
-        <section class="category-section">
-            <h2>Category 1: Travel Adventures</h2>
+        <section id="travel" class="category-section">
+            <h2>Travel Adventures</h2>
             <div class="post">
                 <h2>Post Title 1.1</h2>
                 <p>Post excerpt or first few lines...</p>
@@ -82,10 +88,10 @@
                 <p>Post excerpt or first few lines...</p>
                 <a href="post2.html">Read more</a>
             </div>
-            </section>
+        </section>
 
-        <section class="category-section">
-            <h2>Category 2: Creative Writing</h2>
+        <section id="writing" class="category-section">
+            <h2>Creative Writing</h2>
             <div class="post">
                 <h2>Post Title 2.1</h2>
                 <p>Post excerpt or first few lines...</p>
@@ -96,13 +102,26 @@
                 <p>Post excerpt or first few lines...</p>
                 <a href="post4.html">Read more</a>
             </div>
-            </section>
+        </section>
 
     </div>
 
     <footer>
         <p>&copy; 2024 Your Name</p>
     </footer>
+
+    <script>
+        function showCategory(categoryId) {
+            const categories = document.querySelectorAll('.category-section');
+            categories.forEach(category => {
+                category.classList.remove('active');
+            });
+            document.getElementById(categoryId).classList.add('active');
+        }
+
+        // Show the first category by default
+        showCategory('travel');
+    </script>
 
 </body>
 </html>
