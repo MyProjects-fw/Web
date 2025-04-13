@@ -1,37 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Firmware Blog</title>
-  <link rel="stylesheet" href="style.css">
+<style>
+body {margin:0;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>My Firmware Blog</h1>
-    <p>Projects & Electronics Learning</p>
-  </header>
 
-  <main class="container">
-    <div class="grid">
-      <section class="card">
-        <h2>Projects</h2>
-        <ul class="project-list">
-          <li><a href="project01.html">Project 01 – Blinking an LED</a></li>
-          <li><a href="project02.html">test
-<li><a href="project03.html">test
-  <li><a href="project04.html">test
-          <!-- Add more projects here -->
-        </ul>
-      </section>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">Fundamentals</a></li>
+  <li><a href="#contact">Explorations</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
 
-      <section class="card">
-        <h2>Electronics Knowledge</h2>
-        <ul class="project-list">
-          <li><a href="electronics01.html">Basic Components – Resistors, Capacitors, and LEDs</a></li>
-          <!-- Add more theory posts here -->
-        </ul>
-      </section>
-    </div>
-  </main>
+<div style="padding:20px;margin-top:30px;background-color:#777;height:1500px;">
+  <h1>Fixed Top Navigation Bar</h1>
+  <h2>Scroll this page to see the effect</h2>
+  <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+
+  
+  <p>Some text some text some text some text..</p>
+</div>
+
 </body>
 </html>
+
+
+
+
