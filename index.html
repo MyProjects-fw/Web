@@ -159,6 +159,30 @@ void set_brightness(uint8_t duty_cycle) {
     <li><strong>Turn off unused LEDs</strong> to conserve power.</li>
     <li>Encapsulate LED control in functions or classes.</li>
   </ul> 
+  <h2 id="example">7. Bonus: PWM Control Example (C - AVR)</h2>
+  <pre><code>void pwm_init() {
+    // Set OC0A (e.g., Arduino Pin 6) as output
+    DDRD |= (1 << DDD6);
+
+    // Set Fast PWM mode
+    TCCR0A |= (1 << WGM01) | (1 << WGM00);
+    // Clear OC0A on compare match
+    TCCR0A |= (1 << COM0A1);
+    // Prescaler = 64
+    TCCR0B |= (1 << CS01) | (1 << CS00);
+}
+
+void set_brightness(uint8_t brightness) {
+    OCR0A = brightness; // 0 (off) to 255 (full)
+}</code></pre>
+
+  <h2>Conclusion</h2>
+  <p>LEDs are fundamental to embedded design. From simple status indicators to complex visual effects, mastering LED control is a key skill for every firmware engineer.</p>
+
+  <p><strong>Got questions or suggestions?</strong> Drop them in your GitHub issues or comments. Happy coding!</p>
+
+</body>
+    </html>
 </div>
 
 </body>
