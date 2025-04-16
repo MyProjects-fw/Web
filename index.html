@@ -48,10 +48,117 @@ li a:hover:not(.active) {
 <div style="padding:20px;margin-top:30px;height:1500px;">
   <h1>MY BLOG</h1>
   <h2>THIS IS HOME PAGE</h2>
-  <h2>Introduces my blog</h2>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Essential LED Tips for Firmware Engineers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #004080;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      overflow-x: auto;
+      border-left: 5px solid #004080;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    nav {
+      margin-bottom: 2rem;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
 
-  
-  <p>Some text here..</p>
+  <h1>Essential LED Tips for Firmware Engineers</h1>
+  <p>Whether you're just starting out or refining your embedded systems skills, understanding how to work with LEDs is fundamental. This guide covers everything a firmware engineer needs to know—practical, concise, and ready for real-world use.</p>
+
+  <nav>
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#basics">1. LED Basics</a></li>
+      <li><a href="#current">2. Current Limiting</a></li>
+      <li><a href="#types">3. Types of LEDs</a></li>
+      <li><a href="#brightness">4. Brightness and Control</a></li>
+      <li><a href="#multiple">5. Driving Multiple LEDs</a></li>
+      <li><a href="#firmware">6. Firmware Design Tips</a></li>
+      <li><a href="#example">7. Bonus: PWM Control Example (C)</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="basics">1. LED Basics</h2>
+  <ul>
+    <li><strong>LEDs are diodes:</strong> Allow current flow in one direction (anode to cathode) and emit light when forward-biased.</li>
+    <li><strong>Polarity:</strong> Anode (+) = long leg, Cathode (–) = short leg or flat edge.</li>
+    <li><strong>Forward Voltage:</strong> ~2V for red, ~3V for white/blue.</li>
+    <li><strong>Forward Current:</strong> Typically 5–20 mA.</li>
+  </ul>
+
+  <h2 id="current">2. Current Limiting</h2>
+  <p>Always use a resistor or current driver to protect the LED.</p>
+  <h3>Ohm’s Law:</h3>
+  <pre><code>R = (V_supply - V_forward) / I</code></pre>
+  <p><strong>Example:</strong><br>
+  Supply = 5V, LED Vf = 2V, Desired Current = 10mA<br>
+  R = (5 - 2) / 0.01 = 300 Ω</p>
+
+  <h2 id="types">3. Types of LEDs</h2>
+  <ul>
+    <li><strong>Standard LEDs:</strong> General-purpose indicators.</li>
+    <li><strong>High-Power LEDs:</strong> Brighter; require heat sinking.</li>
+    <li><strong>RGB LEDs:</strong> Combine red, green, and blue to produce different colors.</li>
+    <li><strong>Addressable LEDs:</strong> e.g., WS2812, SK6812. Controlled via serial data, great for animations.</li>
+  </ul>
+
+  <h2 id="brightness">4. Brightness and Control</h2>
+  <p><strong>GPIO On/Off:</strong> Use firmware to toggle pins HIGH or LOW.</p>
+  <p><strong>PWM Dimming:</strong> Adjust brightness with PWM (Pulse Width Modulation).</p>
+  <pre><code>// Pseudo code
+void set_brightness(uint8_t duty_cycle) {
+    OCR0A = duty_cycle; // 0-255
+}</code></pre>
+  <p>0% = OFF, 100% = Full brightness, in-between for dimming.</p>
+
+  <h2 id="multiple">5. Driving Multiple LEDs</h2>
+  <ul>
+    <li><strong>Multiplexing:</strong> Cycle through LED rows/columns quickly.</li>
+    <li><strong>Shift Registers:</strong> Like 74HC595, expand outputs using serial data.</li>
+    <li><strong>Driver ICs:</strong> MAX7219, TLC5940 for efficient LED control and current regulation.</li>
+  </ul>
+
+  <h2 id="firmware">6. Firmware Design Tips</h2>
+  <ul>
+    <li>Use <strong>state machines</strong> for clean LED logic.</li>
+    <li>Implement <strong>debounce logic</strong> when using LEDs with buttons.</li>
+    <li><strong>Turn off unused LEDs</strong> to conserve power.</li>
+    <li>Encapsulate LED control in functions or classes.</li>
+  </ul> 
 </div>
 
 </body>
